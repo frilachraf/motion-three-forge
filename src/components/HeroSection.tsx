@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
 import { HeroButton } from './ui/hero-button';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { HiDownload } from "react-icons/hi";
 
-export default function HeroSection({onClick}) {
+export default function HeroSection({onClick, content}) {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6">
       <div className="container mx-auto text-center z-10">
@@ -10,7 +11,7 @@ export default function HeroSection({onClick}) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="space-y-8"
+          className="space-y-8 "
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -19,7 +20,7 @@ export default function HeroSection({onClick}) {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-effect border border-primary/20"
           >
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm text-muted-foreground">Modern 3D Experience</span>
+            <span className="text-sm text-muted-foreground">Modern Web Developer</span>
           </motion.div>
 
           <div className="space-y-6">
@@ -29,9 +30,9 @@ export default function HeroSection({onClick}) {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-5xl md:text-7xl lg:text-8xl font-bold"
             >
-              <span className="gradient-text">Beautiful</span>
+              <span className="gradient-text ">Hey I'm</span>
               <br />
-              <span className="text-foreground">3D Experience</span>
+              <span className="text-foreground ">{content?.lName} {content?.fName}</span>
             </motion.h1>
 
             <motion.p
@@ -40,8 +41,7 @@ export default function HeroSection({onClick}) {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
             >
-              Built with React, Three.js, Framer Motion, and Tailwind CSS. 
-              Experience the future of web development with stunning 3D animations.
+            {content.description}
             </motion.p>
           </div>
 
@@ -52,8 +52,8 @@ export default function HeroSection({onClick}) {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <HeroButton variant="hero" size="lg" className="group" onClick={onClick}>
-              Get Started
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              Download Resume
+              <HiDownload className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </HeroButton>
             <HeroButton variant="outline" size="lg">
               Connect Supabase

@@ -12,14 +12,17 @@ import {
   IconNewSection,
   IconTerminal2,
 } from "@tabler/icons-react";
-import { FloatingDock } from "@/components/ui/floating-doc";
+import { FloatingDock, FloatingDockDesktop } from "@/components/ui/floating-doc";
+import { ContactIcon } from "lucide-react";
+import { MdOutlinePhoneEnabled } from "react-icons/md";
+import { HiCode, HiOutlineBriefcase, HiOutlineFolderOpen } from "react-icons/hi";
+import { supabase } from "@/lib/supabase/client";
+import { DownloadFile } from "@/lib/supabase/services";
 
 const Index = () => {
-  const supabase = createClient(
-    import.meta.env.VITE_SUPABASE_URL,
-    import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY
-  );
+  
   const [instruments, setInstruments] = useState([]);
+  const [downloeded, setDownloaded] = useState([])
   useEffect(() => {
     getInstruments();
   }, []);
@@ -30,40 +33,22 @@ const Index = () => {
 
   const DownloadCv = async () => {
     const fileName = "resume.pdf";
-    const filePath = "documents";
-    const { data } = await supabase.storage.from(filePath).download(fileName);
-
-    // Create a download link
-    const url = URL.createObjectURL(data);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = fileName || filePath.split("/").pop();
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-
-    // Clean up
-    URL.revokeObjectURL(url);
-
-    console.log(data);
+    const {data: fileData} = await DownloadFile({fileName}) 
+    console.log(fileData);
   };
 
+  const heroContent = {
+    fName: 'Achraf', 
+    lName: 'Fril', 
+    description: "Built with React, Three.js, Framer Motion, and Tailwind CSS. Experience the future of web development with stunning 3D animations."
+  }
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="border m-6 p-6 ">
-        <h1 className="text-5xl font-bold uppercase">First Name</h1>
-        <h1 className="text-5xl font-bold uppercase">Last Name</h1>
-        <div className="text-muted ">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
-            voluptatum.
-          </p>
-        </div>
-      </div>
-      <div className=""></div>
-      <div className=""></div>
-      <ThreeScene />
-      <HeroSection onClick={DownloadCv} />
+      <header className="">
+        {/* <FloatingDockDesktop items={links} /> */}
+      </header>
+      {/* <ThreeScene /> */}
+      <HeroSection onClick={DownloadCv} content={heroContent}/>
       {/* <TechStack /> */}
       <SupabaseSection />
       <div className="fixed bottom-6 right-6 z-10">
@@ -88,51 +73,44 @@ const links = [
   },
 
   {
-    title: "Products",
+    title: "Projects",
     icon: (
-      <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      <HiOutlineFolderOpen className="h-full w-full text-neutral-500 dark:text-neutral-300" />
     ),
     href: "#",
   },
   {
-    title: "Components",
+    title: "Experience",
     icon: (
-      <IconNewSection className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      <HiOutlineBriefcase className="h-full w-full text-neutral-500 dark:text-neutral-300" />
     ),
     href: "#",
   },
   {
-    title: "Aceternity UI",
-    icon: (
-      <img
-        src="https://assets.aceternity.com/logo-dark.png"
-        width={20}
-        height={20}
-        alt="Aceternity Logo"
-      />
-    ),
+    title: "Tech Stack",
+    icon: <HiCode className="h-full w-full text-neutral-500 dark:text-neutral-300"/>,
     href: "#",
   },
   {
-    title: "Changelog",
+    title: "Contact",
     icon: (
-      <IconExchange className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      <MdOutlinePhoneEnabled className="h-full w-full text-neutral-500 dark:text-neutral-300" />
     ),
     href: "#",
   },
 
-  {
-    title: "Twitter",
-    icon: (
-      <IconBrandX className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-    ),
-    href: "#",
-  },
-  {
-    title: "GitHub",
-    icon: (
-      <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-    ),
-    href: "#",
-  },
+  // {
+  //   title: "Twitter",
+  //   icon: (
+  //     <IconBrandX className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+  //   ),
+  //   href: "#",
+  // },
+  // {
+  //   title: "GitHub",
+  //   icon: (
+  //     <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+  //   ),
+  //   href: "#",
+  // },
 ];

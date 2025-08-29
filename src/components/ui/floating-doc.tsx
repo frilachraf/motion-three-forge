@@ -16,6 +16,7 @@ import {
 } from "motion/react";
 
 import { useEffect, useRef, useState } from "react";
+import { HiPlus } from "react-icons/hi";
 
 export const FloatingDock = ({
   items,
@@ -88,7 +89,7 @@ const FloatingDockMobile = ({
                   key={item.title}
                   className="flex h-14 w-14 items-center justify-center rounded-full bg-gray-50 dark:bg-neutral-900"
                 >
-                  <div className="h-4 w-4">{item.icon}</div>
+                  <div className="h-6 w-6">{item.icon}</div>
                 </a>
               </motion.div>
             ))}
@@ -99,13 +100,13 @@ const FloatingDockMobile = ({
         onClick={() => setOpen(!open)}
         className="flex h-14 w-14 items-center justify-center rounded-full bg-gray-50 dark:bg-neutral-800"
       >
-        <IconLayoutNavbarCollapse className="h-5 w-5 text-neutral-500 dark:text-neutral-400" />
+        <HiPlus className="h-5 w-5 text-neutral-500 dark:text-neutral-400" />
       </button>
     </div>
   );
 };
 
-const FloatingDockDesktop = ({
+export const FloatingDockDesktop = ({
   items,
   className,
 }: {
@@ -113,12 +114,14 @@ const FloatingDockDesktop = ({
   className?: string;
 }) => {
   let mouseX = useMotionValue(Infinity);
+    
+
   return (
     <motion.div
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "mx-auto hidden h-16 items-end gap-4 rounded-2xl bg-gray-50 px-4 pb-3 md:flex dark:bg-neutral-900",
+        "mx-auto h-16 items-end gap-4 rounded-full bg-gray-50 px-4 pb-3 flex dark:bg-neutral-900 w-fit ",
         className
       )}
     >
