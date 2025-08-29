@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { HeroButton } from './ui/hero-button';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
-export default function HeroSection() {
+export default function HeroSection({onClick}) {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6">
       <div className="container mx-auto text-center z-10">
@@ -51,7 +51,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <HeroButton variant="hero" size="lg" className="group">
+            <HeroButton variant="hero" size="lg" className="group" onClick={onClick}>
               Get Started
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </HeroButton>

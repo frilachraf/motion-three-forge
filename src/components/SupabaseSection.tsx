@@ -41,7 +41,7 @@ export default function SupabaseSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready for <span className="gradient-text">Supabase</span>
+            Why<span className="gradient-text"> Me ?</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
             This project is pre-configured to work with Supabase. Connect your backend 
@@ -50,7 +50,7 @@ export default function SupabaseSection() {
           </p>
           
           <HeroButton variant="hero" size="xl" className="mb-8">
-            Connect to Supabase
+            Contact me
           </HeroButton>
           
           <p className="text-sm text-muted-foreground">
