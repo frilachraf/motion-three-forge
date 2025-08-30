@@ -1,40 +1,40 @@
 import { motion } from 'framer-motion';
 import { Card } from './ui/card';
 
-const technologies = [
+const skills = [
   {
-    name: "React",
-    description: "Modern UI library with hooks and context",
+    name: "React & Next.js",
+    description: "Building modern, scalable web applications",
     icon: "⚛️"
   },
   {
-    name: "Three.js",
-    description: "3D graphics and animations in the browser",
+    name: "Node.js & Express",
+    description: "Server-side development and APIs",
+    icon: "🚀"
+  },
+  {
+    name: "Three.js & WebGL",
+    description: "3D graphics and immersive experiences",
     icon: "🎨"
   },
   {
-    name: "Framer Motion",
-    description: "Smooth animations and interactions",
-    icon: "🎬"
-  },
-  {
-    name: "Tailwind CSS",
-    description: "Utility-first CSS framework",
-    icon: "🎯"
-  },
-  {
     name: "TypeScript",
-    description: "Type-safe development experience",
+    description: "Type-safe development at scale",
     icon: "📝"
   },
   {
-    name: "Supabase Ready",
-    description: "Backend as a service integration",
-    icon: "🚀"
+    name: "Database Design",
+    description: "PostgreSQL, MongoDB, and Redis",
+    icon: "🗃️"
+  },
+  {
+    name: "Cloud & DevOps",
+    description: "AWS, Docker, and CI/CD pipelines",
+    icon: "☁️"
   }
 ];
 
-export default function TechStack() {
+export default function Skills() {
   return (
     <section className="py-32 px-6">
       <div className="container mx-auto">
@@ -46,17 +46,17 @@ export default function TechStack() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="gradient-text">Modern</span> Tech Stack
+            My <span className="gradient-text">Skills</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Built with the latest and greatest technologies for optimal performance and developer experience.
+            Technologies and tools I use to bring ideas to life with precision and creativity.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {technologies.map((tech, index) => (
+          {skills.map((skill, index) => (
             <motion.div
-              key={tech.name}
+              key={skill.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -65,13 +65,13 @@ export default function TechStack() {
             >
               <Card className="p-6 glass-effect border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-glow group">
                 <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {tech.icon}
+                  {skill.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-foreground">
-                  {tech.name}
+                  {skill.name}
                 </h3>
                 <p className="text-muted-foreground">
-                  {tech.description}
+                  {skill.description}
                 </p>
               </Card>
             </motion.div>

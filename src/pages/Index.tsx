@@ -1,7 +1,10 @@
 import ThreeScene from '@/components/ThreeScene';
 import HeroSection from '@/components/HeroSection';
-import TechStack from '@/components/TechStack';
-import SupabaseSection from '@/components/SupabaseSection';
+import Skills from '@/components/Skills';
+import Projects from '@/components/Projects';
+import Experience from '@/components/Experience';
+import Contact from '@/components/Contact';
+import Footer from '@/components/Footer';
 import { ThemeToggle } from '@/components/ThemeToggle';
 
 const Index = () => {
@@ -12,8 +15,11 @@ const Index = () => {
       </div>
       <ThreeScene />
       <HeroSection />
-      <TechStack />
-      <SupabaseSection />
+      <Skills />
+      <Projects />
+      <Experience />
+      <Contact />
+      <Footer />
     </div>
   );
 };
