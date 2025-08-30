@@ -18,6 +18,8 @@ import { MdOutlinePhoneEnabled } from "react-icons/md";
 import { HiCode, HiOutlineBriefcase, HiOutlineFolderOpen } from "react-icons/hi";
 import { supabase } from "@/lib/supabase/client";
 import { DownloadFile } from "@/lib/supabase/services";
+import { FeaturesSection } from "@/components/FeaturesSection";
+import ProjectsSection from "@/components/ProjectsSection";
 
 const Index = () => {
   
@@ -51,12 +53,14 @@ const Index = () => {
       <HeroSection onClick={DownloadCv} content={heroContent}/>
       {/* <TechStack /> */}
       <SupabaseSection />
+      {/* <FeaturesSection /> */}
       <div className="fixed bottom-6 right-6 z-10">
         <FloatingDock
           mobileClassName="" // only for demo, remove for production
           items={links}
         />
       </div>
+      <ProjectsSection />
     </div>
   );
 };

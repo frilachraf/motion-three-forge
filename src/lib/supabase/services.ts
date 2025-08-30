@@ -1,3 +1,4 @@
+import { c } from "node_modules/framer-motion/dist/types.d-Cjd591yU";
 import { supabase, supabaseClient } from "./client";
 
 export const DownloadFile = async ({fileName}) => {
@@ -24,4 +25,9 @@ export const MakeDownloadableLink= (fileData:any, fileName:any) => {
     // Clean up
     URL.revokeObjectURL(url);
     return url
+}
+
+export const getProjects = async ()=>{
+    const {data} = await supabase.from('projects').select('')
+    return {data}
 }
