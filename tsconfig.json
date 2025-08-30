@@ -9,7 +9,6 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["@supabase/ssr"],
     "noImplicitAny": false,
     "noUnusedParameters": false,
     "skipLibCheck": true,
