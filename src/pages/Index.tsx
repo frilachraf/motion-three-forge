@@ -6,6 +6,7 @@ import Experience from '@/components/Experience';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import SupabaseExample from '@/components/SupabaseExample';
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <Skills />
       <Projects />
       <Experience />
+      <SupabaseExample />
       <Contact />
       <Footer />
     </div>
